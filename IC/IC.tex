@@ -1,0 +1,43 @@
+\documentclass[a4paper,12pt]{article}
+
+\input{../lib/bnu_ct}
+\input{../lib/math_ct}
+\input{../lib/common_pkgs}
+
+\newcommand{\coursename}{Intelligent Computing}
+
+\pagestyle{fancy}
+\cfoot{\thepage}
+\fancyhead[C]{\textbf{\coursename}}
+\fancyhead[L]{ID: \bnuid}
+\fancyhead[R]{\name}
+
+\usepackage[explicit]{titlesec}
+\titleformat{\section}{\bfseries\Large}{#1 \arabic{section}}{6pt}{}
+
+\newenvironment{solution}{\renewcommand{\proofname}{Solution}\begin{proof}}{\end{proof}}
+
+\newtheorem{question}{Question}
+
+
+\begin{document}
+
+\section{Problem}
+\lipsum[1]
+\begin{solution}
+   \lipsum[2] 
+\end{solution}
+
+\begin{question}
+    \lipsum[3]
+\end{question}
+
+\newpage
+
+\section{Problem}
+\lipsum[1]
+\begin{proof}
+   \lipsum[2] 
+\end{proof}
+
+\end{document}

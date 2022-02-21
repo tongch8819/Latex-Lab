@@ -1,0 +1,1 @@
+cwd='/c/Users/75934/Projects/latex-lab'
