@@ -3,6 +3,8 @@
 \input{../lib/bnu_ct}
 \input{../lib/math_ct}
 \input{../lib/common_pkgs}
+\usepackage{arxiv}
+
 
 \title{Computational Optimal Transport}
 \author{
@@ -10,7 +12,7 @@
     \and
     Li Cui \\ \bnu
 }
-\date{}
+\date{Feb. 22, 2022}
 
 \begin{document}
 \maketitle
@@ -18,11 +20,9 @@
     \lipsum[1]
 \end{abstract}
 
-\section{Introduction}
-    \lipsum[2]
+\input{section/intro}
 
-\section{Background}
-    \lipsum[3]
+\input{section/background}
 
 \section{Model}
     \lipsum[4]
@@ -30,15 +30,13 @@
 \section{Experiment}
     \lipsum[5]
 
-\section{Related Work}
-\cite{peyre2020computational}
-\cite{StaOfWD2019}
+\input{section/rw}
 
 
 \section{Conclusion}
     \lipsum[7]
 
-\bibliographystyle{alpha}
+\bibliographystyle{unsrt}
 \bibliography{ref}
 
 \end{document}

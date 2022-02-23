@@ -1,0 +1,51 @@
+\section{Background}
+
+The OT distance is originally proposed by French Mathematics Monge. 
+Given two random variables 
+$X \sim \mu$ and $Y \sim \nu$, 
+and a loss function
+\begin{equation}
+    c: (X, Y) \in  
+    \mathscr{X} \times \mathscr{Y}
+    \mapsto 
+    c(X, Y) \in \mathbb{R}^+
+    .
+\end{equation}
+The goal of the OT problem is to minimize the transport cost 
+by finding an optimal mapping 
+$T: \mathscr{X} \to \mathscr{Y}$, i.e.
+\begin{equation}
+    \inf_{T} \mathbb{E}_{X \sim \mu}
+    \left[
+        c\left( X, T(X) \right)
+    \right]
+    \quad s.t. \ 
+    T(X) \sim Y
+\end{equation}
+
+Furthermore, Kantorovich relaxed the Monge problem into a minimization
+problem over couplings 
+$(X, Y) \sim \pi$ instead of map $T: \mathscr{X} \to \mathscr{Y}$,
+where the marginal distributions of $\pi$ equal respectively 
+with $\mu$ and $\nu$. 
+The kantorovich relaxiation permits a given point 
+$X \in \text{Supp}(\mu)$
+to be delivered into many different targets
+$Y \in \text{Supp}(\nu)$.
+By appending a entropic regularization term 
+$H(\cdot)$, i.e.
+\begin{equation}
+\begin{split}
+    \inf_{\pi} \mathbb{E}_{(X,Y) \sim \pi}
+    \left[
+        c\left( X, T(X) \right)
+    \right] + \lambda H(\pi)
+    \\
+    \quad s.t. \ 
+    X \sim \mu, Y \sim \nu, (X, Y) \sim \pi
+    \\
+    H(\pi) = \text{KL}(\pi\ |\ \mu \otimes \nu)
+\end{split}
+\end{equation}
+, the computation of OT problem can be accelerated.
+
