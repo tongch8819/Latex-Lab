@@ -11,7 +11,55 @@ relation between the distributions. \cite{LiMengXue9157821}
 
 Wasserstain distance
 
+\begin{equation}
+   W_p(\mu, \nu) = \left(
+\min_{ \kappa \in K(\mu, \nu)}
+\int_{X \times Y}
+d(x,y)^p
+d \kappa(x,y)
+   \right)^{1/p}
+\end{equation}
+
 Barycenter
 unsupervised learning
 
 Sinkhorn algorithm
+
+Define trajactory $\tau$ and its distribution $p_{\pi}(\tau)$. 
+Define initial state distribution $\mu(s_0)$.
+
+
+\begin{equation}
+\begin{aligned}
+R(s_t, a_t) \\
+R(\tau) = \sum_{i=1}^{T} \gamma^i R(s_t, a_t) \\
+\mathbb{E}_{\tau \sim p_{\pi}(\tau)} \left( R(\tau) \right) \\
+\argmax_{\pi} \mathbb{E}_{\tau \sim p_{\pi}(\tau)} \left( R(\tau) \right) \\
+p_{\pi}{\tau} = \mu(s_0)  \prod_{i=0}^{T} P(s_{i+1} | s_i, a_i) \cdot \pi(a_i | s_i)
+\end{aligned} 
+\end{equation}
+    
+Wasserstein Robust Reinforcement Learning Objective
+
+Define  $\theta$ be the parameter of policy network and 
+$\Phi$ be the parameter of environmental dynamic.
+
+\begin{equation}
+    \max_{\theta} \left[
+        \min_{\Phi} 
+        \mathbb{E}_{\tau \sim p_{\Phi}^{\theta}(\tau)}
+        [ R(\tau) ]
+    \right]
+    \quad 
+    \text{s.t.}
+    \mathbb{E}_{
+        (s,a) \sim ??
+    } [
+        W^2_2 \left(
+            P_{\Phi}( \cdot | s, a)
+            ,
+            P_0( \cdot | s, a)
+        \right)
+    ]
+    \leq \varepsilon
+\end{equation}
